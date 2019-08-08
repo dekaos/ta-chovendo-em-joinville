@@ -1,0 +1,29 @@
+targets:
+  ta_chovendo_em_joinville:
+    sources:
+      exclude: ["lib/builder.dart"]
+    builders:
+      sass_builder|sass_builder:
+        enabled: False
+      angular_components|scss_builder:
+        enabled: True
+        options:
+          outputStyle: compressed
+  scss_builder:
+    sources: ["lib/builder.dart"]
+    dependencies:
+      - build
+      - sass_builder
+
+
+builders:
+  scss_builder:
+    target: "scss_builder"
+    import: "package:ta_chovendo_em_joinville/builder.dart"
+    builder_factories: ["scssBuilder"]
+    build_to: cache
+    build_extensions:
+      .scss: [".scss.css"]
+      .sass: [".scss.css"]
+    applies_builders:
+      - sass_builder|sass_source_cleanup
