@@ -6,8 +6,6 @@ import 'src/home/home_component.dart';
 @Component(
   selector: 'my-app',
   templateUrl: 'app_component.html',
-  directives: [Home],
+  directives: [HomeComponent],
 )
-class AppComponent {
-  // Nothing here yet. All logic is in TodoListComponent.
-}
+class AppComponent {}
