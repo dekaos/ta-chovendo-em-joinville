@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 @import url(https://fonts.googleapis.com/css?family=Material+Icons);
+@import 'package:angular_components/css/material/material';
+
+$w25: 25%;
+$w75: 75%;
+$w100: 100%;
 
 html {
   font-size: 62.5%;
@@ -20,4 +25,37 @@ body {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+.fill-width {
+  width: 100%;
+  position: relative;
+}
+
+.row {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.col {
+  border: 1px solid #eee;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
+
+  &.col25 {
+    width: calc(#{$w25} - 5px);
+  }
+
+  &.col75 {
+    width: calc(#{$w75} - 5px);
+  }
+
+  &.col100 {
+    width: $w100;
+  }
 }
