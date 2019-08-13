@@ -91,3 +91,19 @@ body {
     }
   }
 }
+
+@media screen and (min-width: 1300px) {
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+
+  .container {
+    width: 90%;
+    max-width: 1400px;
+  }
+}
