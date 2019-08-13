@@ -6,6 +6,10 @@
   h1 {
     text-align: center;
     margin: 0;
+
+    span {
+      text-transform: capitalize;
+    }
   }
 
   .title {
