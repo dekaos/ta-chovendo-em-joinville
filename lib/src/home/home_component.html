@@ -1,5 +1,67 @@
 <div class="home">
-    <div class="container">
-        <h1>Ta chovendo em Joinville</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col col100">
+        <h1>Ta chovendo em {{currentCity}}?</h1>
+        <div class="search">
+          <material-input
+              label="Procurar cidade."
+              type="text"
+              floatingLabel
+              class="input-wrap"
+              id="input-city"
+              (keyup.enter)="searchCity()"
+              [(ngModel)]="inputSearch"
+          >
+          </material-input>
+          <div class="search-button-wrap">
+            <material-button (click)="searchCity()">
+              <material-icon icon="search" ariaLabel="Search city"></material-icon>
+            </material-button>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col col25">
+        <div class="title">
+          <h2>Tempo em {{cityData['name']}}</h2>
+          <h3>{{cityData['description']}}</h3>
+          <h4>{{cityData['temp']}} ˚C</h4>
+        </div>
+        <div class="details">
+          <div>
+            <strong>Máxima:&nbsp;</strong>{{cityData['max']}} ˚C
+          </div>
+          <div>
+            <strong>Mínima:&nbsp;</strong>{{cityData['min']}} ˚C
+          </div>
+          <div>
+            <strong>Vento:&nbsp;</strong>{{cityData['wind_speed']}} km/h
+          </div>
+          <div>
+            <strong>Humidade:&nbsp;</strong>{{cityData['humidity']}}%
+          </div>
+          <div>
+            <strong>Pressão:&nbsp;</strong> {{cityData['pressure']}} hpa
+          </div>
+          <div>
+            <strong>Nascer do sol:&nbsp;</strong>{{cityData['sunrise']}}
+          </div>
+          <div>
+            <strong>Por do sol:&nbsp;</strong>{{cityData['sunset']}}
+          </div>
+        </div>
+        <div class="loading" *ngIf="loading == true">
+
+        </div>
+      </div>
+      <div class="col col75">
+        <canvas id="chart"></canvas>
+        <div class="loading" *ngIf="loading == true">
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
