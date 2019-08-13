@@ -81,7 +81,7 @@ class HomeComponent implements OnInit {
       );
 
       ChartDataSets ChartDataSetsTwo = ChartDataSets(
-        label: 'Vento km/h',
+        label: 'Vento m/s',
         borderColor: 'forestgreen',
         backgroundColor: 'transparent',
         data: forecastDataWind,
