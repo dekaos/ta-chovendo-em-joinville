@@ -2,6 +2,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_components/material_input/material_input.dart';
 import 'package:angular_components/material_button/material_button.dart';
 import 'package:angular_components/material_icon/material_icon.dart';
+import 'package:angular_components/material_spinner/material_spinner.dart';
 import 'package:ta_chovendo_em_joinville/src/utils/handle_exception.dart';
 import 'home_service.dart';
 import 'dart:html';
@@ -18,7 +19,8 @@ import '../utils/weather_description.dart';
     MaterialIconComponent,
     MaterialInputComponent,
     materialInputDirectives,
-    NgIf
+    MaterialSpinnerComponent,
+    NgIf,
   ],
   encapsulation: ViewEncapsulation.None,
   providers: [ClassProvider(HomeService)]
@@ -29,10 +31,10 @@ class HomeComponent implements OnInit {
   HomeComponent(this.weather);
 
   String currentCity = 'Joinville';
+  bool loading;
   String inputSearch = '';
-  String errorMessage;
+  String errorMessage = '';
   Map cityData = Map();
-  bool loading = true;
 
   void ngOnInit() {
     getWeather(currentCity);
@@ -40,7 +42,6 @@ class HomeComponent implements OnInit {
 
   void searchCity() {
     if (inputSearch.isNotEmpty) {
-      loading = true;
       currentCity = inputSearch;
       getWeather(currentCity);
       inputSearch = '';
@@ -48,6 +49,9 @@ class HomeComponent implements OnInit {
   }
 
   Future<dynamic> getWeather(String city) async {
+    loading = true;
+    errorMessage = '';
+
     try {
       cityData = await weather.getWeather(city);
       List<String> forecastLabels = List();

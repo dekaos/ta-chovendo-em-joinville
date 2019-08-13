@@ -19,6 +19,9 @@
               <material-icon icon="search" ariaLabel="Search city"></material-icon>
             </material-button>
           </div>
+          <div>
+            {{errorMessage}}
+          </div>
         </div>
       </div>
     </div>
@@ -53,13 +56,13 @@
           </div>
         </div>
         <div class="loading" *ngIf="loading == true">
-
+          <material-spinner></material-spinner>
         </div>
       </div>
       <div class="col col75">
         <canvas id="chart"></canvas>
         <div class="loading" *ngIf="loading == true">
-
+          <material-spinner></material-spinner>
         </div>
       </div>
     </div>
