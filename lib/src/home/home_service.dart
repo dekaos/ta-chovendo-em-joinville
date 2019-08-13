@@ -47,7 +47,7 @@ class HomeService {
     return foreCast;
   }
 
-  Future<dynamic> getWeather([String city]) async {
+  Future<dynamic> getWeather(String city) async {
     String url = 'https://api.openweathermap.org/data/2.5/weather?q=$city&type=like&units=metric&lang=pt&APPID=50cee3eb274c3567972054e2c538a34b';
     List foreCastData = List();
     final response = await http.get(url);
