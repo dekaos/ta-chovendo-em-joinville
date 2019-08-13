@@ -8,12 +8,16 @@ $w100: 100%;
 
 html {
   font-size: 62.5%;
+  min-height: 100%;
 }
 
 body {
   font-size: 14px;
   padding: 0;
   margin: 0;
+  background: url('static-map.jpg') no-repeat center center;
+  background-size: cover !important;
+  min-height: 100%;
 }
 
 * {
@@ -43,9 +47,10 @@ body {
 
 .col {
   border: 1px solid #eee;
-  margin-bottom: 10px;
+  background: rgba(255, 255, 255, .95);
   padding: 10px;
-  position: relative;
+  box-shadow: 0 8px 6px -6px rgb(0, 0, 0, .5);
+  border-radius: .5rem;
 
   &.col25 {
     width: calc(#{$w25} - 5px);
