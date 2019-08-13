@@ -16,7 +16,7 @@ class HomeService {
     Map status = Map();
     status[400] = 'Erro ao processar requisição.';
     status[401] = 'Usuário não autorizado.';
-    status[404] = 'Cidade não encontrada, você pode tentar uma nova busca.';
+    status[404] = 'Cidade não encontrada, tente uma nova busca.';
     status[500] = 'Erro interno do servidor.';
     status[503] = 'Serviço indisponível.';
 
@@ -25,7 +25,13 @@ class HomeService {
 
   void _checkStatusCode (int statusCode, dynamic data) {
     if (statusCode < 200 || statusCode >= 400) {
-      int code = data.containsKey('cod') && data['cod'] ? int.tryParse(data['cod'].toString()) : 400;
+      int code;
+
+      if (data.containsKey('cod')) {
+        String responseAPICode = data['cod'].toString();
+        code = int.tryParse(responseAPICode) ?? 400;
+      }
+
       _throwException(_errorMessageByStatusCode(code));
     }
   }
