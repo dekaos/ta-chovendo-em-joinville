@@ -28,6 +28,7 @@
 
     h4 {
       font-size: 1.4rem;
+      margin-bottom: 0;
     }
   }
 
@@ -73,17 +74,28 @@
       font-size: 1.8rem;
       text-align: left;
     }
+
+    .col75 {
+      display: none;
+    }
   }
 }
 
 @media (min-width: 990px) {
 
   .home {
-    padding: 7rem 0 0 0;
+
+    .container {
+      margin: auto;
+    }
 
     h1 {
       font-size: 2rem;
       text-align: center;
+    }
+
+    .col75 {
+      display: flex;
     }
   }
 }
