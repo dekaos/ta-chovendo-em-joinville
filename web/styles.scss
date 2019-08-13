@@ -78,6 +78,7 @@ body {
 
     &.col25 {
       width: calc(#{$w25} - 5px);
+      margin-bottom: 0;
     }
 
     &.col75 {
